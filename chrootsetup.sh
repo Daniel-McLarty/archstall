@@ -83,7 +83,7 @@
 	read -p "Do you want to install recomended packages (y/N) " rp
 		case $rp in
 			[yY] ) echo ok;
-				pacman -Sy unrar rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake timeshift libreoffice pacman-contrib alsa-utils alsa-plugins pulseaudio pulseaudio-alsa celluloid qbittorrent lutris cups;
+				pacman -Sy unrar rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib alsa-utils alsa-plugins pulseaudio pulseaudio-alsa celluloid qbittorrent lutris cups;
 				break;;
 			[nN] ) echo ok;
 				break;;
