@@ -1,5 +1,5 @@
 #Chroot Install
-        pacman -Sy linux-lts linux linux-headers linux-lts-headers nano openssh linux-firmware networkmanager wpa_supplicant wireless_tools netctl dialog lvm2 htop plasma dolphin konsole sddm git kate firefox packagekit-qt5 flatpak fwupd
+        pacman -Suy linux-lts linux linux-headers linux-lts-headers nano openssh linux-firmware networkmanager wpa_supplicant wireless_tools netctl dialog lvm2 htop plasma dolphin konsole sddm git kate firefox packagekit-qt5 flatpak fwupd
 	while true; do
 		echo "ni: Nvidia GPU and Intel CPU"
 		echo "na: Nvidia GPU and AMD CPU"
@@ -10,17 +10,17 @@
 		read -p "Select System type from the list: " st
 		
 		case $st in
-			ni ) pacman -Sy nvidia nvidia-lts intel-ucode;
+			ni ) pacman -S nvidia nvidia-lts intel-ucode;
 				break;;
-			na ) pacman -Sy nvida nvida-lts amd-ucode;
+			na ) pacman -S nvidia nvidia-lts amd-ucode;
 				break;;
-			aa ) pacman -Sy masa amd-ucode;
+			aa ) pacman -S mesa amd-ucode;
 				break;;
-			ai ) pacman -Sy masa intel-ucode;
+			ai ) pacman -S mesa intel-ucode;
 				break;;
-			ii ) pacman -Sy masa intel-ucode;
+			ii ) pacman -S mesa intel-ucode;
 				break;;
-			vb ) pacman -Sy virtualbox-guest-utils xf86-video-vmware;
+			vb ) pacman -S virtualbox-guest-utils xf86-video-vmware;
 				systemctl enable vboxservice;
 				break;;
 			* ) echo Invalid System Type 
@@ -42,7 +42,7 @@
 	echo "Enter account password"
 	passwd $un
 	echo " %wheel ALL=(ALL:ALL) ALL" >> etc/sudoers;
-	pacman -Sy grub efibootmgr dosfstools os-prober mtools
+	pacman -S grub efibootmgr dosfstools os-prober mtools
 	mkdir /boot/EFI
 	read -p "What disk did you install ARCH GNU+Linux to? example sda: " disk
 	mount /dev/${disk}1 /boot/EFI
@@ -83,7 +83,7 @@
 	read -p "Do you want to install recomended packages (y/N) " rp
 		case $rp in
 			[yY] ) echo ok;
-				pacman -Sy unrar rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib alsa-utils alsa-plugins pulseaudio pulseaudio-alsa celluloid qbittorrent lutris cups;
+				pacman -S unrar rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib alsa-utils alsa-plugins pulseaudio pulseaudio-alsa celluloid qbittorrent lutris cups;
 				break;;
 			[nN] ) echo ok;
 				break;;
