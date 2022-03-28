@@ -6,8 +6,8 @@ to run you must
 - pacman -Sy git
 - git clone https://github.com/Pico-Dev/archstall
 - cd archstall
-- chmod +x archstall.sh yaysetup.sh chrootsetup.sh
-- ./archstall.sh
+- chmod +x install.sh
+- ./install.sh
 
 Follow along with the prompts and the script will do most of the work
 
