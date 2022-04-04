@@ -21,7 +21,7 @@
 #disk setup
 	selectdisk(){
 		lsblk
-		read -p "Example sda: " vardisk	
+		read -p "Example nvme0n1: " vardisk	
 	}
 
 #Partitioning Disk 	
