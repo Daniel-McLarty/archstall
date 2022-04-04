@@ -3,7 +3,7 @@ Yet another arch install script
 
 to run you must
 
-- pacman -Sy git
+- pacman -Suyy git
 - git clone https://github.com/Pico-Dev/archstall
 - cd archstall
 - chmod +x install.sh
