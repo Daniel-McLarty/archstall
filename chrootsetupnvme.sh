@@ -71,7 +71,7 @@ EEOF;
 #Install Grub
 	pacman -S grub efibootmgr dosfstools os-prober mtools
 	mkdir /boot/EFI
-	read -p "What disk did you install ARCH GNU+Linux to? example sda: " disk
+	read -p "What disk did you install ARCH GNU+Linux to? example nvme0n1: " disk
 	mount /dev/${disk}p1 /boot/EFI
 	grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 	read -p "What is your locale? example en: " le
