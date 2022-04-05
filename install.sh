@@ -1,5 +1,5 @@
 #Set up rest of script
-	chmod +x archstall.sh archstallnvme.sh chrootsetup.sh chrootsetupnvme.sh yaysetup.sh
+	chmod +x archstall.sh archstallnvme.sh chrootsetup.sh chrootsetupnvme.sh yaysetup.sh extradisk.sh extradisknvme.sh
 
 #Select Disk Type
 	read -p "What type of disk do you use SATA or NVME? " type

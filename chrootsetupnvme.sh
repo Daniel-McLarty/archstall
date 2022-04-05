@@ -2,29 +2,19 @@
 	read -p "do you want to setup another disk (y/N) " an
 			case $an in
 				[yY] ) echo ok;
-					lsblk;
-					read -p "what disk: " diskan;
-					fdisk /dev/$diskan <<EEOF
-					g
-					n
-					
-					
-					
-					w
-EEOF
-;
-					cryptsetup luksFormat /dev/${diskan}1;
-					read -p "what do you want your disk to be called: " sdname;
-					cryptsetup open --type luks /dev/${diskan}1 $sdmane;
-					mkfs.ext4 /dev/mapper/$sdname;
-					dd if=/dev/urandom of=/root/keyfile bs=1024 count=4;
-					chmod 0400 /root/keyfile;
-					sudo cryptsetup luksAddKey /dev/${diskan}1;
-					echo "$sdname /dev/${diskan}1 /root/keyfile luks" | tee -a /etc/crypttab;
-					mkdir /mnt/$sdmane;
-					echo "/dev/mapper/$sdname /mnt/$sdmane ext4 defaults 0 2" | tee -a /etc/fstab;
+					read -p "NVME or SATA" ns
+						case $ns in
+							SATA )
+								./extradisk.sh;
+								break;;
+							NVME )
+								./extradisknvme.sh;
+								break;;
+						esac;
+					break;;
 				* ) echo ok;
 					break;;
+			esac
 #Chroot Install
         pacman -Suy linux-zen linux linux-headers linux-zen-headers nano openssh linux-firmware networkmanager wpa_supplicant wireless_tools netctl dialog lvm2 htop plasma dolphin konsole sddm git kate firefox packagekit-qt5 flatpak fwupd
 	while true; do
