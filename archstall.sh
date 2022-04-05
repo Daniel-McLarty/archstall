@@ -93,6 +93,8 @@ EEOF
 		pacstrap -i /mnt base base-devel
 		cp chrootsetup.sh /mnt/chrootsetup.sh
 		cp yaysetup.sh /mnt/yaysetup.sh
+		cp extradisk.sh /mnt/extradisk.sh
+		cp extradisknvme.sh /mnt/extradisknvme.sh
 		arch-chroot /mnt /chrootsetup.sh
 		umount -a
 		read -p "Do you want to reboot now (y/N) " rb
