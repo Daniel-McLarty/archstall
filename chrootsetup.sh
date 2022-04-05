@@ -11,7 +11,7 @@
 					
 					
 					w
-EEOF;
+EEOF
 					cryptsetup luksFormat /dev/${diskan}1;
 					read -p "what do you want your disk to be called: " sdname;
 					cryptsetup open --type luks /dev/${diskan}1 $sdmane;
