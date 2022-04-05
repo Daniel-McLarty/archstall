@@ -3,15 +3,13 @@
 
 #Select Disk Type
 	read -p "What type of disk do you use SATA or NVME? " type
-		while true; do
-			case $type in
-				SATA ) echo OK;
-					./archstall.sh;
-					break;;
-				NVME ) echo ok;
-					./archstallnvme.sh
-					break;;
-				* ) echo please select SATA or NVME;;
-			esac
-		done
+		case $type in
+			SATA ) echo ok;
+				./archstall.sh;
+				break;;
+			NVME ) echo ok;
+				./archstallnvme.sh
+				break;;
+			* ) echo please select SATA or NVME;;
+		esac
 	echo "Have a good day"
