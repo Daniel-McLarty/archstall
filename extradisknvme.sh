@@ -18,7 +18,7 @@ EEOF
 	chmod 0400 /root/keyfile
 	sudo cryptsetup luksAddKey /dev/${diskan}p1
 	echo "$sdname /dev/${diskan}p1 /root/keyfile luks" | tee -a /etc/crypttab
-	mkdir /mnt/$sdnane;
+	mkdir /mnt/$sdname;
 	echo "/dev/mapper/$sdname /mnt/$sdname ext4 defaults 0 2" | tee -a /etc/fstab
 }
 setupdisk
