@@ -48,7 +48,7 @@
 	systemctl enable NetworkManager
 	sed -i.bak "s/block filesystems/block encrypt lvm2 filesystems/" /etc/mkinitcpio.conf
 	mkinitcpio -p linux
-	mkinitcpio -p linux-lts
+	mkinitcpio -p linux-zen
 	read -p "enter your locale example en_US.UTF-8: " locale
 	localectl set-locale LANG=$locale
 	locale-gen
