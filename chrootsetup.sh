@@ -2,7 +2,7 @@
 	read -p "do you want to setup another disk (y/N) " an
 			case $an in
 				[yY] ) echo ok;
-					read -p "NVME or SATA" ns
+					read -p "NVME or SATA: " ns
 						case $ns in
 							SATA )
 								./extradisk.sh;
