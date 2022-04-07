@@ -2,7 +2,7 @@
 	read -p "do you want to setup another disk (y/N) " an
 			case $an in
 				[yY] ) echo ok;
-					read -p "NVME or SATA" ns
+					read -p "NVME or SATA: " ns
 						case $ns in
 							SATA )
 								./extradisk.sh;
@@ -16,7 +16,7 @@
 					break;;
 			esac
 #Chroot Install
-        pacman -Syyu --noconfirm linux-zen linux linux-headers linux-zen-headers nano openssh linux-firmware networkmanager wpa_supplicant wireless_tools netctl dialog lvm2 htop plasma dolphin konsole sddm git kate firefox packagekit-qt5 flatpak fwupd
+        pacman -Syyu --noconfirm linux-zen linux linux-headers linux-zen-headers nano openssh linux-firmware networkmanager wpa_supplicant wireless_tools netctl dialog lvm2 htop plasma dolphin konsole sddm git kate firefox packagekit-qt5 flatpak fwupd alsa-utils alsa-plugins pipewire pipewire-alsa
 	while true; do
 		echo "ni: Nvidia GPU and Intel CPU"
 		echo "na: Nvidia GPU and AMD CPU"
@@ -48,7 +48,7 @@
 	systemctl enable NetworkManager
 	sed -i.bak "s/block filesystems/block encrypt lvm2 filesystems/" /etc/mkinitcpio.conf
 	mkinitcpio -p linux
-	mkinitcpio -p linux-lts
+	mkinitcpio -p linux-zen
 	read -p "enter your locale example en_US.UTF-8: " locale
 	localectl set-locale LANG=$locale
 	locale-gen
@@ -101,7 +101,8 @@
 	read -p "Do you want to install recomended packages (y/N) " rp
 		case $rp in
 			[yY] ) echo ok;
-				pacman -S --noconfirm unrar rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib alsa-utils alsa-plugins pulseaudio pulseaudio-alsa celluloid qbittorrent lutris cups;
+				pacman -S --noconfirm unrar rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib celluloid qbittorrent lutris cups;
+
 				break;;
 			[nN] ) echo ok;
 				break;;
