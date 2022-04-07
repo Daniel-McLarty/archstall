@@ -16,7 +16,7 @@ EEOF
 	mkfs.ext4 /dev/mapper/$sdname
 	dd if=/dev/urandom of=/root/keyfile bs=1024 count=4
 	chmod 0400 /root/keyfile
-	sudo cryptsetup luksAddKey /dev/${diskan}1
+	cryptsetup luksAddKey /dev/${diskan}1 /root/keyfile
 	echo "$sdname /dev/${diskan}1 /root/keyfile luks" | tee -a /etc/crypttab
 	mkdir /mnt/$sdname;
 	echo "/dev/mapper/$sdname /mnt/$sdname ext4 defaults 0 2" | tee -a /etc/fstab
