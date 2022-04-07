@@ -90,7 +90,7 @@ EEOF
 #Install Base
 	instbase(){
 		echo "Installing Base"
-		pacstrap -i --noconfirm /mnt base base-devel
+		pacstrap -i /mnt base base-devel
 		cp chrootsetupnvme.sh /mnt/chrootsetupnvme.sh
 		cp yaysetup.sh /mnt/yaysetup.sh
 		cp extradisk.sh /mnt/extradisk.sh
