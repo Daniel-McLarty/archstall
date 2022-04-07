@@ -16,7 +16,7 @@
 					break;;
 			esac
 #Chroot Install
-        pacman -Suy linux-zen linux linux-headers linux-zen-headers nano openssh linux-firmware networkmanager wpa_supplicant wireless_tools netctl dialog lvm2 htop plasma dolphin konsole sddm git kate firefox packagekit-qt5 flatpak fwupd alsa-utils alsa-plugins pipewire pipewire-alsa
+        pacman -Syyu --noconfirm linux-zen linux linux-headers linux-zen-headers nano openssh linux-firmware networkmanager wpa_supplicant wireless_tools netctl dialog lvm2 htop plasma dolphin konsole sddm git kate firefox packagekit-qt5 flatpak fwupd alsa-utils alsa-plugins pipewire pipewire-alsa
 	while true; do
 		echo "ni: Nvidia GPU and Intel CPU"
 		echo "na: Nvidia GPU and AMD CPU"
@@ -27,17 +27,17 @@
 		read -p "Select System type from the list: " st
 		
 		case $st in
-			ni ) pacman -S nvidia nvidia-dkms intel-ucode;
+			ni ) pacman -S --noconfirm nvidia nvidia-dkms intel-ucode;
 				break;;
-			na ) pacman -S nvidia nvidia-dkms amd-ucode;
+			na ) pacman -S --noconfirm nvidia nvidia-dkms amd-ucode;
 				break;;
-			aa ) pacman -S mesa amd-ucode;
+			aa ) pacman -S --noconfirm mesa amd-ucode;
 				break;;
-			ai ) pacman -S mesa intel-ucode;
+			ai ) pacman -S --noconfirm mesa intel-ucode;
 				break;;
-			ii ) pacman -S mesa intel-ucode;
+			ii ) pacman -S --noconfirm mesa intel-ucode;
 				break;;
-			vb ) pacman -S virtualbox-guest-utils xf86-video-vmware;
+			vb ) pacman -S --noconfirm virtualbox-guest-utils xf86-video-vmware;
 				systemctl enable vboxservice;
 				break;;
 			* ) echo Invalid System Type 
@@ -101,7 +101,8 @@
 	read -p "Do you want to install recomended packages (y/N) " rp
 		case $rp in
 			[yY] ) echo ok;
-				pacman -S unrar rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib celluloid qbittorrent lutris cups;
+				pacman -S --noconfirm unrar rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib celluloid qbittorrent lutris cups;
+
 				break;;
 			[nN] ) echo ok;
 				break;;

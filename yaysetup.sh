@@ -6,4 +6,4 @@
 	cd yay
 	makepkg -si
 	cd ~
-	yay -Sy p7zip-gui autofs vscodium
+	yay -Sy --noconfirm p7zip-gui autofs vscodium
