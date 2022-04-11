@@ -90,12 +90,18 @@ EEOF
 #Install Base
 	instbase(){
 		echo "Installing Base"
+		curl -o /mirrorlist https://archlinux.org/mirrorlist/all/
+		sed -i 's/#S/S/g' /mirrorlist
+		rankmirrors /mirrorlist > /mirrorlist.fastest
+		cp -v /mirrorlist.fastest /etc/pacman.d/mirrorlist
+		pacman -Syy
 		pacstrap -i /mnt base base-devel
 		cp chrootsetup.sh /mnt/chrootsetup.sh
 		cp yaysetup.sh /mnt/yaysetup.sh
 		cp extradisk.sh /mnt/extradisk.sh
 		cp extradisknvme.sh /mnt/extradisknvme.sh
 		arch-chroot /mnt /chrootsetup.sh
+		cp -v /mirrorlist.fastest /mnt/etc/pacman.d/mirrorlist
 		umount -a
 		read -p "Do you want to reboot now (y/N) " rb
 			case $rb in
