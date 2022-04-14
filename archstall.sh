@@ -90,10 +90,10 @@ EEOF
 #Install Base
 	instbase(){
 		echo "Installing Base"
-		curl -o /mirrorlist https://archlinux.org/mirrorlist/all/
+		mv mirrorlist /mirrorlist
 		sed -i 's/#S/S/g' /mirrorlist
 		rankmirrors /mirrorlist > /mirrorlist.fastest
-		cp -v /mirrorlist.fastest /etc/pacman.d/mirrorlist
+		cp /mirrorlist.fastest /etc/pacman.d/mirrorlist
 		pacman -Syy
 		pacstrap -i /mnt base base-devel
 		cp chrootsetup.sh /mnt/chrootsetup.sh
