@@ -74,6 +74,7 @@
 	pacman -S --noconfirm moreutils
 	sed -i 's/#\[multilib\]/\[multilib\]/' /etc/pacman.conf
 	tac /etc/pacman.conf | sed '0,/#Include/{s/#Include/Include/}' | tac | sponge /etc/pacman.conf
+	pacman -Syy
 	read -p "What do you want your hostname to be: " hn
 	hostnamectl set-hostname $hn
 	printf "127.0.0.1 localhost" >> /etc/hosts
