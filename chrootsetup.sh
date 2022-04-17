@@ -72,7 +72,7 @@
 	sed -i "s/#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/" /etc/default/grub
 	grub-mkconfig -o /boot/grub/grub.cfg8
 	pacman -S --noconfirm moreutils
-	sed -i "s/#[multilib]/[multilib]/" /etc/pacman.conf
+	sed -i 's/#\[multilib\]/\[multilib\]/' /etc/pacman.conf
 	tac /etc/pacman.conf | sed '0,/#Include/{s/#Include/Include/}' | tac | sponge /etc/pacman.conf
 	read -p "What do you want your hostname to be: " hn
 	hostnamectl set-hostname $hn
