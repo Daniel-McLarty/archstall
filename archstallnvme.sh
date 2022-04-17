@@ -92,11 +92,11 @@ EEOF
 		echo "Installing Base"
 		pacman -Syy
 		pacstrap -i /mnt base base-devel
-		cp chrootsetup.sh /mnt/chrootsetup.sh
+		cp chrootsetupnvme.sh /mnt/chrootsetupnvme.sh
 		cp yaysetup.sh /mnt/yaysetup.sh
 		cp extradisk.sh /mnt/extradisk.sh
 		cp extradisknvme.sh /mnt/extradisknvme.sh
-		arch-chroot /mnt /chrootsetup.sh
+		arch-chroot /mnt /chrootsetupnvme.sh
 		cp -v /mirrorlist.fastest /mnt/etc/pacman.d/mirrorlist
 		umount -a
 		read -p "Do you want to reboot now (y/N) " rb
