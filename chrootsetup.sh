@@ -70,7 +70,7 @@
 	sed -i "s+loglevel=3 quiet+cryptdevice=/dev/${disk}3:volgroup0:allow-discards loglevel=3+" /etc/default/grub
 	sed -i "s/#GRUB_ENABLE_CRYPTODISK=y/GRUB_ENABLE_CRYPTODISK=y/" /etc/default/grub
 	sed -i "s/#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/" /etc/default/grub
-	grub-mkconfig -o /boot/grub/grub.cfg8
+	grub-mkconfig -o /boot/grub/grub.cfg
 	pacman -S --noconfirm moreutils
 	sed -i 's/#\[multilib\]/\[multilib\]/' /etc/pacman.conf
 	tac /etc/pacman.conf | sed '0,/#Include/{s/#Include/Include/}' | tac | sponge /etc/pacman.conf
