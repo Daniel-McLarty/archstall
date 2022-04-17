@@ -70,7 +70,10 @@
 	sed -i "s+loglevel=3 quiet+cryptdevice=/dev/${disk}3:volgroup0:allow-discards loglevel=3+" /etc/default/grub
 	sed -i "s/#GRUB_ENABLE_CRYPTODISK=y/GRUB_ENABLE_CRYPTODISK=y/" /etc/default/grub
 	sed -i "s/#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/" /etc/default/grub
-	grub-mkconfig -o /boot/grub/grub.cfg
+	grub-mkconfig -o /boot/grub/grub.cfg8
+	pacman -S --noconfirm moreutils
+	sed -i "s/#[multilib]/[multilib/" /etc/pacman.conf
+	tac /etc/pacman.conf | sed '0,/#Include/{s/#Include/Include/}' | tac | sponge /etc/pacman.conf
 	read -p "What do you want your hostname to be: " hn
 	hostnamectl set-hostname $hn
 	printf "127.0.0.1 localhost" >> /etc/hosts
@@ -102,7 +105,7 @@
 	read -p "Do you want to install recomended packages (y/N) " rp
 		case $rp in
 			[yY] ) echo ok;
-				pacman -S --noconfirm unrar rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib celluloid qbittorrent lutris cups;
+				pacman -S --noconfirm unrar steam rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib celluloid qbittorrent lutris cups;
 
 				break;;
 			[nN] ) echo ok;
