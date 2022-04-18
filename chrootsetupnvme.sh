@@ -68,7 +68,7 @@
 	grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 	read -p "What is your locale? example en: " le
 	cp /usr/share/locale/$le\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/${le}.mo
-	sed -i "s+loglevel=3 quiet+cryptdevice=/dev/${disk}3:volgroup0:allow-discards loglevel=3+" /etc/default/grub
+	sed -i "s+loglevel=3 quiet+cryptdevice=/dev/${disk}p3:volgroup0:allow-discards loglevel=3+" /etc/default/grub
 	sed -i "s/#GRUB_ENABLE_CRYPTODISK=y/GRUB_ENABLE_CRYPTODISK=y/" /etc/default/grub
 	sed -i "s/#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/" /etc/default/grub
 	grub-mkconfig -o /boot/grub/grub.cfg
