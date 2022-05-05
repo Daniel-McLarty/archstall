@@ -107,7 +107,7 @@
 	read -p "Do you want to install recomended packages (y/N) " rp
 		case $rp in
 			[yY] ) echo ok;
-				pacman -S --noconfirm unrar steam rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib celluloid qbittorrent lutris cups;
+				pacman -S --noconfirm wine wine-mono unrar steam rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib celluloid qbittorrent lutris cups;
 				break;;
 			[nN] ) echo ok;
 				break;;
