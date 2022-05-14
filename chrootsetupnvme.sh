@@ -27,9 +27,9 @@
 		read -p "Select System type from the list: " st
 		
 		case $st in
-			ni ) pacman -S --noconfirm nvidia nvidia-dkms intel-ucode;
+			ni ) pacman -S --noconfirm nvidia-dkms intel-ucode;
 				break;;
-			na ) pacman -S --noconfirm nvidia nvidia-dkms amd-ucode;
+			na ) pacman -S --noconfirm nvidia-dkms amd-ucode;
 				break;;
 			aa ) pacman -S --noconfirm mesa amd-ucode;
 				break;;
@@ -49,8 +49,8 @@
 	sed -i.bak "s/block filesystems/block encrypt lvm2 filesystems/" /etc/mkinitcpio.conf
 	mkinitcpio -p linux
 	mkinitcpio -p linux-zen
-	read -p "enter your locale example en_US.UTF-8: " locale
-	localectl set-locale LANG=$locale
+	read -p "enter your locale example en_US.UTF-8 UTF-8: " locale
+	sed -i "s/#$locale/$locale/" /etc/locale.gen
 	locale-gen
 	echo "Enter root password"
 	passwd
