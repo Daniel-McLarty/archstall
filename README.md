@@ -4,7 +4,7 @@ Yet another arch install script
 to run you must
 
 - pacman -S git
-- git clone https://github.com/Pico-Dev/archstall
+- git clone https://github.com/Daniel-McLarty/archstall
 - cd archstall
 - chmod +x install.sh
 - ./install.sh
