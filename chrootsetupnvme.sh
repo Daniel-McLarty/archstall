@@ -16,7 +16,7 @@
 					break;;
 			esac
 #Chroot Install
-        pacman -Syyu linux-zen linux linux-headers linux-zen-headers nano openssh linux-firmware networkmanager wpa_supplicant wireless_tools netctl dialog lvm2 htop plasma dolphin konsole sddm git kate firefox packagekit-qt5 flatpak fwupd alsa-utils alsa-plugins pipewire pipewire-alsa
+        pacman -Syyu linux-zen linux-lts linux-lts-headers linux-zen-headers nano openssh linux-firmware networkmanager wpa_supplicant wireless_tools netctl dialog lvm2 htop fwupd alsa-utils alsa-plugins pipewire pipewire-alsa
 	while true; do
 		echo "ni: Nvidia GPU and Intel CPU"
 		echo "na: Nvidia GPU and AMD CPU"
@@ -107,7 +107,7 @@
 	read -p "Do you want to install recomended packages (y/N) " rp
 		case $rp in
 			[yY] ) echo ok;
-				pacman -S --noconfirm wine wine-mono unrar steam rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib celluloid qbittorrent lutris cups;
+				pacman -S --noconfirm plasma dolphin konsole sddm git kate firefox packagekit-qt5 flatpak wine wine-mono unrar steam rsync bash-completion traceroute bind cronie xdg-user-dirs ntfs-3g btrfs-progs exfat-utils gptfdisk fuse2 fuse3 fuseiso obs-studio kdenlive neofetch handbrake libreoffice pacman-contrib celluloid qbittorrent lutris cups;
 				break;;
 			[nN] ) echo ok;
 				break;;
